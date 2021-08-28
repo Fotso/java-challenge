@@ -1,4 +1,4 @@
-### How to use this spring-boot project
+\### How to use this spring-boot project
 
 - Install packages with `mvn package`
 - Run `mvn spring-boot:run` for starting the application (or use your IDE)
@@ -37,7 +37,7 @@ Application (with the embedded H2 database) is ready to be used ! You can access
 #### What we will look for
 - Readability of your code
 - Documentation
-- Comments in your code 
+- Comments in your code
 - Appropriate usage of spring boot
 - Appropriate usage of packages
 - Is the application running as expected
@@ -50,3 +50,35 @@ Please let us know more about your Java experience in a few sentences. For examp
 - I have 3 years experience in Java and I started to use Spring Boot from last year
 - I'm a beginner and just recently learned Spring Boot
 - I know Spring Boot very well and have been using it for many years
+
+----------------------------------------------------------
+## Installation and Run the API
+First we need to clone the package from github, then launch the mvn run command.
+
+```sh
+# clone the project
+$ git clone https://github.com/Fotso/java-challenge.git
+
+# now go to your java-challenge repository
+$ cd java-challenge/
+
+#installation and run the API
+$ mvn spring-boot:run
+```
+## Application features
+
+The application implements the following features:
+
+- Spring Boot Security
+- Spring Boot Actuator
+- Spring Boot Logging
+- Spring Boot Cache
+- Enable Spring Profile
+- Enable Error Handling
+- Implements Spring Boot JUNIT test
+
+## Note
+I am comfortable working with Spring Boot, I am currently using the framework on daily basis.
+
+
+

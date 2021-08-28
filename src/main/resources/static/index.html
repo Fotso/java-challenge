@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>API DEMO</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="./css/editor.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="./css/narrow-jumbotron.css" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="container">
+    <div class="header clearfix">
+        <nav>
+            <ul class="nav nav-pills float-right">
+                <li class="nav-item">
+
+                </li>
+                <li class="nav-item">
+
+                </li>
+                <li class="nav-item">
+
+                </li>
+            </ul>
+        </nav>
+        <h3 class="text-muted">Fotso Theophane</h3>
+    </div>
+
+    <div class="jumbotron">
+        <h1 class="display-3">API Demo</h1>
+        <p class="lead">This is the home page of the API Demo. This page describe how to install the application, how to run the application and the different features available. The source code of the Application is available here:</p><div><a href="https://github.com/Fotso/java-challenge.git" target="_blank">https://github.com/Fotso/java-challenge.git</a><br></div><p></p>
+        <p></p>
+    </div>
+
+    <div class="row marketing">
+        <div class="col-lg-6">
+            <h4>1- Installation</h4>
+            <p>This section describe how to install the application (with the different installation options available).</p>
+
+            <h4>2- How to run the Application</h4>
+            <p>Here we will discuss how to run the Application (with the different launch options available).</p>
+
+            <h4>3- The Application features</h4>
+            <p></p>
+            <p>The Application is a Spring Boot Application. We will see what are the features implemented on our API.</p></div>
+
+        <div class="col-lg-6">
+            <h4>4- The Application behavior</h4>
+            <p>Here we will detail the different endpoints available with the different access rights. We will discuss about our JUnit Test Case.</p>
+
+            <h4>5- Source of Improvement</h4>
+            <p>We will discuss very briefly about the development choice made, what we can improve.</p>
+
+            <h4>6- Note</h4>
+            <p>Quick note about myself and my experience.</p>
+        </div>
+    </div>
+
+
+
+</div><div class="container"><div class="container" style=""></div>
+    <div class="header clearfix"></div>
+    <h1>1- Installation<div></div></h1>
+    <p>We have two installation options. The first option will be clone the git repository and install the source code. The other option would be to pull the image&nbsp;</p><div><div>Option 1.</div><div><br></div></div>
+    <div><code>$ git clone https://github.com/Fotso/java-challenge.git<br>$ cd ./java-challenge<br>$ mvn clean install<br></code><div><code><br></code></div></div>
+    <div>Option 2.<div><br></div></div>
+    <div><code>$ docker pull theophraste/java-challenge:latest </code></div>
+    <div><code></code></div>
+    <div class="header clearfix"></div>
+    <h1>2- How to run the Application<div></div></h1>
+    <div>If you have clone the repository (Installation Option 1.), then you can run the following command:</div><br>
+    <code>$ mvn spring-boot:run</code><div><br></div>
+    <div>Otherwise if you have pulled the docker image from the public registry (Installation Option 2.), you can run the following command (one of the two):</div><br>
+    <code># if you want to run the container in a detached mode<br>$ docker run -d -p 8080:8080 theophraste/java-challenge:latest<br><br># or if you want to run the container in a foreground mode&nbsp;<br>$ docker run -p 8080:8080 -it theophraste/java-challenge:latest</code><div><br></div><div>After that, the application will be available on the following url:<div><br></div>
+        <div>-&nbsp;http://localhost:8080/api/v1/employees (the API)</div>
+        <div>-&nbsp;http://localhost:8080/h2-console/&nbsp; (the H2 database)</div>
+        <div>-&nbsp;http://localhost:8080/swagger-ui.html&nbsp; (the swagger features)</div><div><br></div>
+        <div>You will&nbsp;<b>need to be authenticated</b> in order to access to the <b>API endpoints</b>.<br>I have register 2 users by default, an admin user and a regular user.<div>For the admin user (username: <b>admin</b> and password: <b>admin</b>).<div>For the regular user (username: <b>user</b> and password: <b>user</b>).<div><br></div><div>The application is also available on STG &nbsp;<a href="http://ec2-54-242-126-162.compute-1.amazonaws.com/" target="_blank">http://ec2-54-242-126-162.compute-1.amazonaws.com/</a> with the<b><u> same users credential mentioned described above</u></b>.<div><br><div>-&nbsp;<a href="http://ec2-54-242-126-162.compute-1.amazonaws.com/api/v1/employees" target="_blank">http://ec2-54-242-126-162.compute-1.amazonaws.com/api/v1/employees</a> (the STG API)</div><div>-&nbsp;<a href="http://ec2-54-242-126-162.compute-1.amazonaws.com/" target="_blank">http://ec2-54-242-126-162.compute-1.amazonaws.com/h2-console/</a> (the STG H2 database)</div><div>-&nbsp;<a href="http://ec2-54-242-126-162.compute-1.amazonaws.com/" target="_blank">http://ec2-54-242-126-162.compute-1.amazonaws.com/swagger-ui.html</a>&nbsp; (the STG swagger features)</div></div></div></div></div></div><div><br></div></div>
+    <div class="header clearfix"></div>
+    <h1>3- The Application features<div></div></h1>
+    <div>The Api Demo focus only on cross cutting concerns development (except this home page). For demo purposes, I made the choice to implement the following features <div><br>
+        <div>
+            <table class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                    <th style="width: 150px;">Features</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Security</td>
+                    <td>The demo application have this controller's endpoint secured by <code>spring-boot-starter-security</code>. By default a user must be authenticated in order to access to the different API endpoint. The only endpoint available to all are the H2 DB, Swagger and the home page.</td>
+                </tr>
+                <tr>
+                    <td>Error handling</td>
+                    <td>The demo application have 2 custom error classes <code>ApiBusinessException</code> and <code>ApiSystemException</code>. We also have a controller advise <code>ApiExceptionHandler</code>, which will be reponsible to catch exception and error raised by our controller, EmployeeController.</td>
+                </tr>
+                <tr>
+                    <td>Logging</td>
+                    <td>The application support logging. Application logs can be found under <code>./logs</code> repository. Each controller's and service's method implement a <code>Logger Object</code> that will print log messages. We also have a <code>spring-logback.xml</code> file that will configure our application's logging behavior.</td>
+                </tr>
+                <tr>
+                    <td>Caching</td>
+                    <td>In order to improve the performance of our system we use the Caching Abstraction of Spring. On our EmployeeServiceImpl class, we have implemented the <code>@Cacheable</code>, <code>@CachePut</code> and <code>@CacheEvict</code> in order to handle the caching lifecycle.</td>
+                </tr>
+                <tr>
+                    <td>Others</td>
+                    <td>The other features of our Api Demo are the Data Transfert Objects (DTO) with <code>EmployeeDto</code> and <code>CreateOrUpdateEmployeeRequestDto</code>. The Spring Boot Actuator feature have been enable, on our POM classpath we have included the  <code>spring-boot-starter-actuator</code> dependency. Only the default actuator endpoints are available. We also have multiple <code>Spring Profile</code>, we have a <code>Dockerfile</code> in order to dockerize our application. Finally we have deployed our application on <code>AWS server</code>.</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="header clearfix"></div>
+        <h1>4- The Application behavior<div></div></h1>
+        <div>The API only have <b>3 endpoints available to ALL</b>, the <b>home page '/'</b>, the<b> H2 database '/h2-console/'</b> and <b>Swagger '/swagger-ui.html'</b>.&nbsp;<div>For all the other endpoints, <b>users need to be authenticated</b>.<div>An <b>ADMIN user</b> have <b>all the rights</b> (create, read, update and delete).　<div>A <b>REGULAR user</b> will only have the <b>right to read</b> the data of an employee, or a list of employees.<div><br></div></div></div></div></div>
+        <table class="table table-bordered table-striped">
+            <thead>
+            <tr>
+                <th style="width: 150px;">Method</th>
+                <th>Endpoint</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>GET</td>
+                <td>/api/v1/employees<br>retrieve the data of a list of employees</td>
+            </tr>
+            <tr>
+                <td>GET</td>
+                <td>/api/v1/employees/{id}<br>retrieve the data of the employee with ID {id}&nbsp;</td>
+            </tr>
+            <tr>
+                <td>POST</td>
+                <td><span style="background-color: rgba(0, 0, 0, 0.05);">/api/v1/employees/<br>create an employee, the request body must include the employee data. <code>ADMIN ONLY</code></span></td>
+            </tr>
+            <tr>
+                <td>PUT</td>
+                <td>/api/v1/employees/{id}<br>update an employee, the request body must include the employee data.<br><code>ADMIN ONLY</code></td>
+            </tr>
+            <tr>
+                <td>POST</td>
+                <td>/api/v1/employees/{id}<br>delete an employee<br><code>ADMIN ONLY</code></td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="header clearfix"></div>
+        <h1>5- Source of Improvement<div></div></h1>
+        <div>We can implement more JUnit test, enable more Actuator endpoints in order to have better monitoring.&nbsp;<div>We could also customize a little bit more our different Spring Profiles.</div></div>
+        <div class="header clearfix"></div>
+        <h1>6- Note<div></div></h1>
+        <div>It's been 4 years I am working with Spring Boot and, I am comfortable working with the framework.</div>
+        <footer class="footer">
+            <p>© Api Demo, Fotso Theophane, August 2021</p>
+        </footer>
+
+    </div> <!-- /container -->
+
+    </div></div></body>
+</html>
